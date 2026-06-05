@@ -38,3 +38,6 @@
 !/app/assets/builds/.keep
 
 /node_modules
+
+# Cloudinaryの認証情報をgitに上げない。
+/config/cloudinary.yml
