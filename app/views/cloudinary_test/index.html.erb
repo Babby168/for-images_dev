@@ -1,0 +1,11 @@
+<h1>Cloudinary 検証</h1>
+
+<%= form_with url: cloudinary_test_index_path, method: :post, multipart: true, local: true, data: { turbo: false } do |f| %>
+  <%= f.file_field :image %>
+  <%= f.submit "アップロード" %>
+<% end %>
+
+<% if @image_url %>
+  <p>アップロード成功！</p>
+  <%= image_tag @image_url, width: 300 %>
+<% end %>
