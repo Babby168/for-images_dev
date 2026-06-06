@@ -13,7 +13,8 @@ RUN apt-get update -qq \
   && apt-get install -y curl \
   && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
   && apt-get update -qq \
-  && apt-get install -y build-essential libpq-dev nodejs
+  && apt-get install -y build-essential libpq-dev nodejs \
+  && npm install -g yarn
 
 # アプリケーションディレクトリの作成
 RUN mkdir /myapp
@@ -26,6 +27,10 @@ RUN gem install bundler:2.3.17
 # GemfileとGemfile.lockをコピーして、必要なgemをインストール
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
+
+# package.jsonの依存関係をインストール
+COPY package.json yarn.lock ./
+RUN yarn install
 
 # アプリケーションのコードをコピー
 COPY . /myapp
