@@ -39,5 +39,5 @@
 
 /node_modules
 
-# Cloudinaryの認証情報をgitに上げない。
-/config/cloudinary.yml
+# Cloudinaryの認証情報を.envファイルに入れてgitに上げない。
+.env
