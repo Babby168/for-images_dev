@@ -1,0 +1,10 @@
+<h1>Vips 検証</h1>
+
+<%= form_with url: vips_test_index_path, method: :post, local: true, data: { turbo: false } do |f| %>
+  <% f.submit "モザイク画像を生成する" %>
+<% end %>
+
+<% if @image_base64 %>
+  <p>生成成功！</p>
+  <img src="data:image/png;base64, <%= @image_base64 %>" width="300">
+<% end %>
