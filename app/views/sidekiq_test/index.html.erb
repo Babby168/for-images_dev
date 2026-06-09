@@ -1,0 +1,10 @@
+<h1>Sidekiq / Redis の検証</h1>
+
+<%= form_with url: sidekiq_test_path, method: :post, data: { turbo: false } do |f| %>
+  <%= f.text_field :message, placeholder: "メッセージを入力してください" %>
+  <%= f.submit "ジョブを実行" %>
+<% end %>
+
+<% if @notice %>
+  <p><%= @notice %></p>
+<% end %>
