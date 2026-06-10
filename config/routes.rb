@@ -1,6 +1,9 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
+  get "css_mosaic/index"
+  post "css_mosaic/add_piece"
+  
   mount Sidekiq::Web => "/sidekiq"
   
   get "sidekiq_test", to: "sidekiq_test#index"

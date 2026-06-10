@@ -1,0 +1,9 @@
+<%= turbo_stream.replace "mosaic-grid" do %>
+  <div id="mosaic-grid" class="grid grid-cols-9 gap-1 w-fit">
+    <% 90.times do |i| %>
+      <% piece = @pieces.find { |p| p.position == i } %>
+      <div class="w-8 h-8 rounded-sm <%= piece ? 'bg-blue-400' : 'bg-gray-200' %>" >
+      </div>
+    <% end %>
+  </div>
+<% end %>

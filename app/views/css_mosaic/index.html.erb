@@ -1,0 +1,15 @@
+<div class="p-8">
+  <h1 class="text-2xl font-bold mb-4">モザイクアート（CSS描画）</h1>
+
+  <div id="mosaic-grid" class="grid grid-cols-9 gap-1 w-fit">
+    <% 90.times do |i| %>
+      <% piece = @pieces.find { |p| p.position == i } %>
+      <div class="w-8 h-8 rounded-sm <%= piece ? 'bg-blue-400' : 'bg-gray-200' %>">
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mt-4">
+    <%= button_to "ストレッチ完了！", css_mosaic_add_piece_path, method: :post, class: "px-4 py-2 bg-green-500 text-white rounded" %>
+  </div>
+</div>
